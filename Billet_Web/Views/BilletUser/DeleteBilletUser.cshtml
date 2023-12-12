@@ -1,0 +1,54 @@
+﻿@model Billet_Web.Models.VM.BilletUserDeleteVM
+<form asp-action="DeleteBilletUser">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary ">Delete Billet</h1>
+        <hr />
+        <input hidden asp-for="BilletUser.BilletNo" />
+        <div class="row">
+            <div class="col-2">
+                <label asp-for="BilletUser.BilletNo" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="BilletUser.BilletNo" readonly class="form-control" />
+            </div>
+            <div class="col-2">
+                <label asp-for="BilletUser.User" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="BilletUser.User" readonly class="form-control" />
+            </div>
+            <div class="col-2">
+                <label asp-for="BilletUser.BilletId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="BilletUser.BilletId" disabled class="form-select" asp-items="@Model.BilletList">
+                    <option disabled selected>--Select Billet--</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <label asp-for="BilletUser.UserAnswer" class="control-label pt-2" style="font-size:20px;"></label>
+
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="BilletUser.UserAnswer" readonly class="form-control" />
+            </div>
+            <div class="col-2">
+                <label asp-for="BilletUser.CorrectAnswer" class="control-label pt-2" style="font-size:20px;"></label>
+
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="BilletUser.CorrectAnswer" readonly class="form-control" />
+            </div>
+            <div class="col-5 offset-2 mb-4">
+                <a asp-action="IndexBillet" asp-controller="Billet" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5 mb-4">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

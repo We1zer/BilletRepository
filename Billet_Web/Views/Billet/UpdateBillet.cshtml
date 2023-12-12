@@ -1,0 +1,77 @@
+﻿@model Billet_Web.Models.Dto.BilletDTO
+<form asp-action="UpdateBillet">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary ">Update Billet</h1>
+        <hr />
+        <input hidden asp-for="Id" />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-2">
+                <label asp-for="Name" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="@Model.Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Description" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Description" class="form-control" rows="5"> </textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer1" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer1" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Answer1" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer2" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer2" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Answer2" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer3" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer3" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Answer3" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer4" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer4" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Answer4" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="CorrectAnswer" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.CorrectAnswer" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="ImageUrl" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="@Model.ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="col-5 offset-2 mb-4">
+                <a asp-action="IndexBillet" asp-controller="Billet" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5 mb-4">
+                <input type="submit" value="Update" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

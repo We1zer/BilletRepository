@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Components
+@model IEnumerable<Billet_Web.Models.Dto.BilletDTO>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<img class="d-block mx-auto" style="max-width: 100%; max-height: 50%" src="~/images/copy-pexels-alexgtacar-1592384.jpg" alt="" />
+<hr />
+<div class="row" style="--bs-gutter-x:0">
+    @foreach (var billet in Model)
+    {
+        <div class="p-4 col-md-12">
+            <div class="row  rounded" data-question-id="@billet.Id" data-correct-answer="@billet.CorrectAnswer">
+                <div class="col-md-4">
+                    <img class="d-block w-100 rounded" src="@billet.ImageUrl" alt="First slide">
+                </div>
+                <div class="col-md-8">
+                    <p class="card-title text-warning fs-3 text-md text-lg-left order-md-last">@billet.Name</p>
+                    <form>
+                        @if (@billet.Answer1 != null)
+                        {
+                            <input type="radio" name="answer_@billet.Id" value="@billet.Answer1" class="form-check-input" /> @billet.Answer1 <br>
+                        }
+                        @if (@billet.Answer2 != null)
+                        {
+                            <input type="radio" name="answer_@billet.Id" value="@billet.Answer2" class="form-check-input" /> @billet.Answer2 <br>
+                        }
+                        @if (@billet.Answer3 != null)
+                        {
+                            <input type="radio" name="answer_@billet.Id" value="@billet.Answer3" class="form-check-input" /> @billet.Answer3 <br>
+                        }
+                        @if (@billet.Answer4 != null)
+                        {
+                            <input type="radio" name="answer_@billet.Id" value="@billet.Answer4" class="form-check-input" /> @billet.Answer4 <br>
+                        }
+                    </form>
+                </div>
+                <div class="col-12">
+                    <div class="row pb-3 pt-2">
+                        <div class="col-md-4 col-sm-6">
+                            <a href="javascript:void(0);" onclick="checkAnswer('@billet.Id')" class="btn btn-success form-control btn-block">Check</a>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <span id="result_@billet.Id" class="result-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    function checkAnswer(questionId) {
+        var selectedAnswer = $("input[name='answer_" + questionId + "']:checked").val();
+        var correctAnswer = $("div[data-question-id='" + questionId + "']").data("correct-answer");
+        var isCorrect = (selectedAnswer === correctAnswer);
+
+        var resultSpan = $("#result_" + questionId);
+
+        if (isCorrect) {
+            resultSpan.text("Correct!");
+            resultSpan.addClass("animate__animated animate__flipInX animate__swing text-success");
+        } else {
+            resultSpan.text("Incorrect!");
+            resultSpan.addClass("animate__animated animate__flipInX animate__swing text-danger");
+        }
+    }
+</script>

@@ -1,0 +1,68 @@
+﻿@model Billet_Web.Models.Dto.BilletDTO
+<form asp-action="DeleteBillet">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary ">Delete Billet</h1>
+        <hr />
+        <input hidden asp-for="Id" />
+        <div class="row">
+            <div class="col-2">
+                <label asp-for="Name" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="@Model.Name" disabled class="form-control" />
+            </div>
+            <div class="col-2">
+                <label asp-for="Description" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Description" disabled class="form-control" rows="5"> </textarea>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer1" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer1" disabled class="form-control" rows="5"></textarea>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer2" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer2" disabled class="form-control" rows="5"></textarea>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer3" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer3" disabled class="form-control" rows="5"></textarea>
+            </div>
+            <div class="col-2">
+                <label asp-for="Answer4" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.Answer4" disabled class="form-control" rows="5"></textarea>
+            </div>
+            <div class="col-2">
+                <label asp-for="CorrectAnswer" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="@Model.CorrectAnswer" disabled class="form-control" rows="5"></textarea>
+            </div>
+            <div class="col-2">
+                <label asp-for="ImageUrl" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="@Model.ImageUrl" disabled class="form-control" />
+            </div>
+            <div class="col-5 offset-2 mb-4">
+                <a asp-action="IndexBillet" asp-controller="Billet" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5 mb-4">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
